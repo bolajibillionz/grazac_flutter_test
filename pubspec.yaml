@@ -82,7 +82,7 @@ flutter:
  
     - family: Source Sans Pro
       fonts:
-        - asset: fonts/SourceSansPro.ttf
+        - asset: fonts/SourceSansPro-Regular.ttf
 
 
 
