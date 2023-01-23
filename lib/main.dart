@@ -1,3 +1,6 @@
+
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
@@ -29,165 +32,108 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black,
-        body: SafeArea(
-          child: Column(children: [
-            const Center(
-              child: Text(
-                'STAFF ID CARD',
-                style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 30),
+      backgroundColor: Colors.teal,
+      body: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          CircleAvatar(
+            radius: 50,
+            backgroundColor: Colors.white,
+            backgroundImage: AssetImage('images/man.jpg'),
+          ),
+          Text(
+            'Angela Yu',
+            style: TextStyle(
+                fontSize: 40,
+                color: Colors.teal.shade100,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Pacifico'),
+          ),
+          Text(
+            'Flutter Developer',
+            style: TextStyle(
+                fontSize: 20,
+                color: Colors.teal.shade100,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Source Sans Pro',
+                letterSpacing: 2.5),
+          ),
+          SizedBox(
+            width: 200,
+            height: 20,
+            child: Divider(
+              thickness: 1,
+              color: Colors.teal.shade100,
+            ),
+          ),
+          // Container(
+          //   margin: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+          //   padding: EdgeInsets.only(left: 20),
+          //   height: 50,
+          //   decoration: BoxDecoration(color: Colors.white),
+          //   child: Row(children: <Widget>[
+          //     Icon(Icons.phone, size: 20, color: Colors.teal),
+          //     SizedBox(width: 30),
+          //     Text(
+          //       '+2347038709484',
+          //       style: TextStyle(
+          //           color: Colors.teal,
+          //           fontSize: 20,
+          //           fontFamily: 'Source Sans Pro'),
+          //     )
+          //   ]),
+          // ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Card(
+              child: ListTile(
+                leading: Icon(Icons.phone, size: 20, color: Colors.teal),
+                title: Text(
+                  '+2347038709484',
+                  style: TextStyle(
+                      color: Colors.teal,
+                      fontSize: 20,
+                      fontFamily: 'Source Sans Pro'),
+                ),
               ),
             ),
-            const SizedBox(
-              height: 20,
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Card(
+              child: ListTile(
+                leading: Icon(Icons.email, size: 20, color: Colors.teal),
+                title: Text(
+                  'bolaji.adeladan@gmail.com',
+                  style: TextStyle(
+                      color: Colors.teal,
+                      fontSize: 20,
+                      fontFamily: 'Source Sans Pro'),
+                ),
+              ),
             ),
-            const CircleAvatar(
-              backgroundColor: Colors.white,
-              radius: 50,
-              backgroundImage: AssetImage('images/man.jpg'),
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            buildUserInfoContainer('Name', 'Femi Emmanuel'),
-            buildUserInfoContainer('Position', 'Gateman'),
-            buildUserInfoContainer('Gender', 'Non-Binary'),
-            buildUserInfoContainer('Genotype', 'AA'),
-            buildUserInfoContainer('PhoneNumber', '+2347038709484'),
-            // Container(
-            //   width: double.infinity,
-            //   height: 70,
-            //   margin: EdgeInsets.only(right: 15, left: 15, bottom: 20),
-            //   padding: EdgeInsets.only(left: 15, right: 15),
-            //   decoration: BoxDecoration(
-            //       color: Colors.white,
-            //       borderRadius: BorderRadius.all(Radius.circular(20))),
-            //   child: Row(
-            //       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //       children: [
-            //         Text(
-            //           'Position:',
-            //           style:
-            //               TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-            //         ),
-            //         SizedBox(
-            //           width: 15,
-            //         ),
-            //         Text(
-            //           'Chief Accountant',
-            //           style:
-            //               TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-            //         )
-            //       ]),
-            // ),
-            // Container(
-            //   width: double.infinity,
-            //   height: 70,
-            //   margin: EdgeInsets.only(right: 15, left: 15, bottom: 20),
-            //   padding: EdgeInsets.only(left: 15, right: 15),
-            //   decoration: BoxDecoration(
-            //       color: Colors.white,
-            //       borderRadius: BorderRadius.all(Radius.circular(20))),
-            //   child: Row(
-            //       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //       children: [
-            //         Text(
-            //           'Genotype:',
-            //           style:
-            //               TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-            //         ),
-            //         SizedBox(
-            //           width: 15,
-            //         ),
-            //         Text(
-            //           'B+',
-            //           style:
-            //               TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-            //         )
-            //       ]),
-            // ),
-            // Container(
-            //   width: double.infinity,
-            //   height: 70,
-            //   margin: EdgeInsets.only(right: 15, left: 15, bottom: 20),
-            //   padding: EdgeInsets.only(left: 15, right: 15),
-            //   decoration: BoxDecoration(
-            //       color: Colors.white,
-            //       borderRadius: BorderRadius.all(Radius.circular(20))),
-            //   child: Row(
-            //       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //       children: [
-            //         Text(
-            //           'Phone Number:',
-            //           style:
-            //               TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-            //         ),
-            //         SizedBox(
-            //           width: 15,
-            //         ),
-            //         Text(
-            //           '+2347038709484',
-            //           style:
-            //               TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-            //         )
-            //       ]),
-            // ),
-            // Container(
-            //   width: double.infinity,
-            //   height: 70,
-            //   margin: EdgeInsets.only(right: 15, left: 15, bottom: 20),
-            //   padding: EdgeInsets.only(left: 15, right: 15),
-            //   decoration: BoxDecoration(
-            //       color: Colors.white,
-            //       borderRadius: BorderRadius.all(Radius.circular(20))),
-            //   child: Row(
-            //       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //       children: [
-            //         Text(
-            //           'Date of Birth:',
-            //           style:
-            //               TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-            //         ),
-            //         SizedBox(
-            //           width: 15,
-            //         ),
-            //         Text(
-            //           '27th June 1973',
-            //           style:
-            //               TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-            //         )
-            //       ]),
-            // ),
-          ]),
-        ));
-  }
+          ),
 
-  Container buildUserInfoContainer(String key, String value) {
-    return Container(
-            width: double.infinity,
-            height: 70,
-            margin: EdgeInsets.only(right: 15, left: 15, bottom: 20),
-            padding: EdgeInsets.only(left: 15, right: 15),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(20))),
-            child: Row(
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    '$key:',
-                    style:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Text(
-                    '$value',
-                    style:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-                  )
-                ]),
-          );
+          //   Container(
+          //     margin: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+          //     padding: EdgeInsets.only(left: 20),
+          //     height: 50,
+          //     decoration: BoxDecoration(color: Colors.white),
+          //     child: Row(children: <Widget>[
+          //       Icon(Icons.email, size: 20, color: Colors.teal),
+          //       SizedBox(width: 30),
+          //       Text(
+          //         'bolaji.adeladan@gmail.com',
+          //         style: TextStyle(
+          //             color: Colors.teal,
+          //             fontSize: 20,
+          //             fontFamily: 'Source Sans Pro'),
+          //       )
+          //     ]),
+          //   ),
+        ],
+      )),
+    );
   }
 }
